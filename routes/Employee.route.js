@@ -47,6 +47,15 @@ EmployeeController.get("/", async (req, res) => {
   }
 });
 
+EmployeeController.get("/:id", async (req,res)=>{
+  const {id} = req.params;
+  const employee = await EmployeeModel.findOne({
+    userId:req.body.userId,
+    _id:id
+  })
+  res.json(employee)
+})
+
 EmployeeController.post("/", async (req, res) => {
   try {
     const { firstname, lastname, email, department, salary, userId } = req.body;

@@ -21,6 +21,7 @@ app.use("/employees", EmployeeController);
 
 // Port
 const port = process.env.PORT;
+console.log(port);
 
 connection
   .then(() => {

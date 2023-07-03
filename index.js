@@ -18,18 +18,13 @@ app.use(authenticate);
 
 app.use("/employees", EmployeeController);
 
-
 // Port
 const port = process.env.PORT;
 console.log(port);
 
-connection
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
-      console.log("Connected to Database");
-    });
-  })
-  .catch((err) => {
-    console.log("Error while connecting to Database");
+connection.then(() => {
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+    console.log("Connected to Database");
   });
+});
